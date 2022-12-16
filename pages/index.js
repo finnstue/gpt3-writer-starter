@@ -2,8 +2,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 // import { useState } from 'react';
 import React, { useState } from 'react';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 const Home = () => {
   const categoriesArray = ["Entertainment","Food and Drink","Home and Family","Music","Nature & Outdoors","Skills","Sports and Activities","Travel & Adventure"];
@@ -13,7 +15,7 @@ const Home = () => {
   const musicArray = ["Drums", "Guitar", "Live Music", "Festivals", "Musician", "Listeing to Music", "MusicMaking", "Piano and Keyboard", "Recording", "Singing"]  ;
   const natureArray = ["Animals", "Bird Watching", "Conservation", "Farming", "Natural History and Geology", "Nature", "Science", "Space"];
   const skillsArray = ["Aviation", "Computers and Software", "DIY Enthusiast", "Graphic Design", "Hobbyist", "Interior Design", "Languages", "Painting and Drawing", "Photography", "Sculpture", "Woodworking", "Writing"];
-  const sportsArray = ["American Football", "Baseball", "Climbing", "CrossFit", "Cycling", "Football", "Golf", "Gym", "Hiking", "Hunting", "MotorSports", "Running", "Snowsports", "Trail", "Running", "Triathlon", "Water Sports", "Yoga"];
+  const sportsArray = ["American Football", "Baseball", "Climbing", "CrossFit", "Cycling", "Football", "Golf", "Gym", "Hiking", "Hunting", "MotorSports", "Snowsports", "Trail", "Running", "Triathlon", "Water Sports", "Yoga"];
   const travelArray = ["Beach","Camping","Glamping","Luxury","Overseas Travel","Road Trips"];
 
   const [userInput, setUserInput] = useState('');
@@ -62,22 +64,22 @@ const Home = () => {
             <div className="header-title">
               <h1>Get the perfect gift for anyone, anytime.</h1>
             </div>
+          </div>
             <div className="header-subtitle">
               {gender=="" && (
-              // <h2>HeyGifts will generate unique gift ideas tailored to the recipients interests.</h2>
-              <h2>What Gender does the Person receiving the Gift have?</h2>
+              <h2>Who is getting a gift?</h2>
               )}
             </div>
-          </div>
           {apiOutput == '' && (
-          <div className='container'>
+          <div className='container2'>
+            {gender=="" && (
             <div className='button-container'>
               <ToggleButton
                   className="mb-2 color-btn"
                   id="toggle-check"
                   type="checkbox"
                   key="man"
-                  variant="outline-primary"
+                  variant="outline-secondary"
                   checked={gender=="Man"}
                   value="1"
                   onChange={() => setGender("Man")}
@@ -89,7 +91,7 @@ const Home = () => {
                   id="toggle-check2"
                   type="checkbox"
                   key="woman"
-                  variant="outline-primary"
+                  variant="outline-secondary"
                   checked={gender=="Woman"}
                   value="1"
                   onChange={() => setGender("Woman")}
@@ -101,14 +103,14 @@ const Home = () => {
                   id="toggle-check3"
                   type="checkbox"
                   key="unisex"
-                  variant="outline-primary"
+                  variant="outline-secondary"
                   checked={gender=="Unisex"}
                   value="1"
                   onChange={() => setGender("Unisex")}
                 >
                   Unisex
               </ToggleButton>
-            </div>
+            </div>)}
             <div className='button-container2'>
             {(gender!=="") && categoriesArray.map(element => <ToggleButton
                 className="mb-2 color-btn"
@@ -249,7 +251,8 @@ const Home = () => {
                 key={element}
                 id={element}
                 type="checkbox"
-                variant="outline-primary"
+                variant="outline-secondary"
+                // bsPrefix='btn-check'
                 checked={interests.includes(element)}
                 value="1"
                 onChange={() => {

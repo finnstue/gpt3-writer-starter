@@ -1,5 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap'); */
-
 body {
     margin: 0;
     padding: 0;
@@ -33,6 +31,21 @@ body {
     position: relative;
     width: auto;
     gap: 64px;
+}
+
+.container2 {
+  display: flex;
+  place-content: center flex-start;
+  align-items: center;
+  flex: 0 0 auto;
+  flex-flow: column nowrap;
+  gap: 10px;
+  height: fit-content;
+  max-width: 975px;
+  overflow: auto;
+  position: relative;
+  width: auto;
+  gap: 64px;
 }
 
 .header {
@@ -468,7 +481,7 @@ tr:nth-child(odd) {
   display: flex;
   justify-content: center;
   flex: 0 0 auto;
-  width: 50%;
+  width: 100%;
   flex-wrap: wrap;
   gap: 5px;
 }
@@ -477,7 +490,7 @@ tr:nth-child(odd) {
   display: flex;
   justify-content: center;
   flex: 0 0 auto;
-  width: 50%;
+  width: 90%;
   flex-wrap: wrap;
   gap: 5px;
 }
@@ -491,22 +504,9 @@ tr:nth-child(odd) {
   text-transform: uppercase;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #2E4C80;
-  background-color: cutom-color;
-  border-color: #2E4C80;
-  border-color: cutom-cor;
-}
-
-.color-btn {
-  background-color: #efefef !important;
+.flat {
+  background-color: #aa3131 !important;
   color: #3c3b3a !important;
   border: none !important;
-}
-
-.color-btn:checked {
-  background-color: #9b1919 !important;
-  color: #3c3b3a !important;
-  border: none !important;
+  accent-color: yellow !important;
 }
