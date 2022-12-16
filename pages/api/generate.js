@@ -23,11 +23,27 @@ Generate a list of 10 gift ideas from Amazon.com including the brand name, for a
 // `
 const generateAction = async (req, res) => {
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
+  console.log(`API: ${basePromptPrefix}
+  Person's Gender: ${req.body.gender}
+  Person's Interests: ${req.body.interests}
+  Person's Country: Germany;
+  Gift Price Maximum: €150.00;
+  Gift Price Minimum: €10.00;
+  Gift Intent: Fun or Practical
+  `)
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `${basePromptPrefix}${req.body.userInput}\n`,
+    // prompt: `${basePromptPrefix}${req.body.userInput}\n`,
+    prompt: `${basePromptPrefix}
+    Person's Gender: ${req.body.gender}
+    Person's Interests: ${req.body.interests}
+    Person's Age: 27;
+    Person's Country: Germany;
+    Gift Price Maximum: €150.00;
+    Gift Price Minimum: €10.00;
+    Gift Intent: Fun or Practical
+    \n`,
     temperature: 0.7,
     max_tokens: 500,
   });
