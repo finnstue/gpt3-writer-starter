@@ -1,18 +1,12 @@
 import Head from 'next/head';
 import Image from 'next/image';
-// import buildspaceLogo from '../assets/buildspace-logo.png';
 // import { useState } from 'react';
 import React, { useState } from 'react';
-// import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
-  // function MyButton(params) {
-  //   return <button>my Button {params.name}</button>
-  // }
-
-  const categoriesArray = ["Entertainment","Food and Drink","Home and Family","Music","Nature and Outdoors","Skills","Sports and Activities","Travel and Adventure"];
+  const categoriesArray = ["Entertainment","Food and Drink","Home and Family","Music","Nature & Outdoors","Skills","Sports and Activities","Travel & Adventure"];
   const entertainmentArray = ["Board Games and Puzzles","Card Games","Current Affairs","History","Movie Geek","Reading","Retro and Old School","SciFi and Fantasy","Superhero","Video Games"];
   const foodArray = ["Baking", "Barbeque", "Beer", "Carnivore", "Cocktails", "Coffee", "Cooking", "Restaurants", "Sweets", "Snacks and Treats", "Vegan", "Vegetarian", "Whiskey", "Wine"];
   const homeArray = ["Babies", "Cats", "Dogs", "Entertaining", "Gardening", "House and Home", "Other Pets", "Outdoor Living", "Parenting", "Smart Home"];
@@ -23,10 +17,6 @@ const Home = () => {
   const travelArray = ["Beach","Camping","Glamping","Luxury","Overseas Travel","Road Trips"];
 
   const [userInput, setUserInput] = useState('');
-
-  // const [checked, setChecked] = useState(false);
-  // const [checked2, setChecked2] = useState(false);
-  // const [checked3, setChecked3] = useState(false);
   const [interests, setInterests] = useState([]);
 
   const [gender, setGender] = useState("");
@@ -45,7 +35,6 @@ const Home = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      // body: JSON.stringify({ userInput }),
       body: JSON.stringify({ gender, interests }),
     });
 
@@ -74,17 +63,17 @@ const Home = () => {
               <h1>Get the perfect gift for anyone, anytime.</h1>
             </div>
             <div className="header-subtitle">
-              <h2>HeyGifts will generate unique gift ideas tailored to the recipients interests.</h2>
+              {gender=="" && (
+              // <h2>HeyGifts will generate unique gift ideas tailored to the recipients interests.</h2>
+              <h2>What Gender does the Person receiving the Gift have?</h2>
+              )}
             </div>
           </div>
           {apiOutput == '' && (
           <div className='container'>
-            {gender=="" && (
-            <p>What Gender does the Person receiving the Gift have?</p>
-            )}
             <div className='button-container'>
               <ToggleButton
-                  className="mb-2"
+                  className="mb-2 color-btn"
                   id="toggle-check"
                   type="checkbox"
                   key="man"
@@ -96,7 +85,7 @@ const Home = () => {
                   Man
               </ToggleButton>
               <ToggleButton
-                  className="mb-2"
+                  className="mb-2 color-btn"
                   id="toggle-check2"
                   type="checkbox"
                   key="woman"
@@ -108,7 +97,7 @@ const Home = () => {
                   Women
               </ToggleButton>
               <ToggleButton
-                  className="mb-2"
+                  className="mb-2 color-btn"
                   id="toggle-check3"
                   type="checkbox"
                   key="unisex"
@@ -122,7 +111,7 @@ const Home = () => {
             </div>
             <div className='button-container2'>
             {(gender!=="") && categoriesArray.map(element => <ToggleButton
-                className="mb-2"
+                className="mb-2 color-btn"
                 id={element}
                 type="checkbox"
                 key={element}
@@ -134,9 +123,9 @@ const Home = () => {
                 {element}
               </ToggleButton>)}
             </div>
-            <div>
+            <div className='button-container3'>
               {(category=="Entertainment") && entertainmentArray.map(element => <ToggleButton
-                className="mb-2"
+                className="mb-2 color-btn"
                 key={element}
                 id={element}
                 type="checkbox"
@@ -156,7 +145,7 @@ const Home = () => {
                 {element}
               </ToggleButton>)}
               {(category=="Food and Drink") && foodArray.map(element => <ToggleButton
-                className="mb-2"
+                className="mb-2 color-btn"
                 key={element}
                 id={element}
                 type="checkbox"
@@ -176,7 +165,7 @@ const Home = () => {
                 {element}
               </ToggleButton>)}
               {(category=="Home and Family") && homeArray.map(element => <ToggleButton
-                className="mb-2"
+                className="mb-2 color-btn"
                 key={element}
                 id={element}
                 type="checkbox"
@@ -195,8 +184,8 @@ const Home = () => {
               >
                 {element}
               </ToggleButton>)}
-              {(category=="Nature and Outdoors") && natureArray.map(element => <ToggleButton
-                className="mb-2"
+              {(category=="Nature & Outdoors") && natureArray.map(element => <ToggleButton
+                className="mb-2 color-btn"
                 key={element}
                 id={element}
                 type="checkbox"
@@ -216,7 +205,7 @@ const Home = () => {
                 {element}
               </ToggleButton>)}
               {(category=="Music") && musicArray.map(element => <ToggleButton
-                className="mb-2"
+                className="mb-2 color-btn"
                 key={element}
                 id={element}
                 type="checkbox"
@@ -236,7 +225,7 @@ const Home = () => {
                 {element}
               </ToggleButton>)}
               {(category=="Skills") && skillsArray.map(element => <ToggleButton
-                className="mb-2"
+                className="mb-2 color-btn"
                 key={element}
                 id={element}
                 type="checkbox"
@@ -256,7 +245,7 @@ const Home = () => {
                 {element}
               </ToggleButton>)}
               {(category=="Sports and Activities") && sportsArray.map(element => <ToggleButton
-                className="mb-2"
+                className="mb-2 color-btn"
                 key={element}
                 id={element}
                 type="checkbox"
@@ -275,8 +264,8 @@ const Home = () => {
               >
                 {element}
               </ToggleButton>)}
-              {(category=="Travel and Adventure") && travelArray.map(element => <ToggleButton
-                className="mb-2"
+              {(category=="Travel & Adventure") && travelArray.map(element => <ToggleButton
+                className="mb-2 color-btn"
                 key={element}
                 id={element}
                 type="checkbox"
@@ -311,6 +300,7 @@ const Home = () => {
               <div className="output">
                 <div className="output-content">
                   <table>
+                    <tbody>
                     <tr>
                       <th>Brand</th>
                       <th>Item</th>
@@ -318,10 +308,11 @@ const Home = () => {
                     </tr>
                     {JSON.parse(apiOutput).map(i =>
                       <tr>
-                        <td>{i.brand.charAt(0).toUpperCase() + i.brand.slice(1)}</td>
-                        <td>{i.name.charAt(0).toUpperCase() + i.name.slice(1)}</td>
-                        <td>{i.price}€</td>
+                        <td key={i.brand}>{i.brand.charAt(0).toUpperCase() + i.brand.slice(1)}</td>
+                        <td key={i.name}>{i.name.charAt(0).toUpperCase() + i.name.slice(1)}</td>
+                        <td key={i.name + i.name}>€</td>
                       </tr>)}
+                    </tbody>
                   </table>
                 </div>
               </div>
