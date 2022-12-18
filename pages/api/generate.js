@@ -23,7 +23,7 @@ const generateAction = async (req, res) => {
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `Generate 7 fun or practical gift ideas from Amazon.com, for a 45 year old ${req.body.gender} from Germany who is interested in ${req.body.interests}. The gift price should be between €20 and €40. Format the output as a JSON and only include brand and name in lower case.
+    prompt: `Generate 5 fun or practical gift ideas from Amazon.com, for a 45 year old ${req.body.gender} from Germany who is interested in ${req.body.interests}. The gift price should be between €20 and €40. Format the output as a JSON and only include brand and name in lower case.
     \n`,
     temperature: 0.7,
     max_tokens: 400,

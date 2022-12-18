@@ -495,18 +495,18 @@ tr:nth-child(odd) {
   gap: 5px;
 }
 
-.toggle-button {
-  background: #fff;
-  color: red;
-  border: 2px solid red;
-  border-radius: 3px;
-  padding: 5px 10px;
-  text-transform: uppercase;
-}
-
 .flat {
   background-color: #aa3131 !important;
   color: #3c3b3a !important;
   border: none !important;
   accent-color: yellow !important;
+}
+
+.hulk:hover {
+  background-color: #aa3131;
+}
+
+.cardflex {
+  display: flex;
+  justify-content: space-between;
 }
