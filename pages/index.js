@@ -204,9 +204,9 @@ const Home = () => {
                   type="checkbox"
                   key="man"
                   variant="outline-primary"
-                  checked={age=="Baby"}
+                  checked={age=="one to three"}
                   value="1"
-                  onChange={() => setAge("Baby")}
+                  onChange={() => setAge("one to three")}
                 >
                   Baby
               </ToggleButton>
@@ -216,9 +216,9 @@ const Home = () => {
                   type="checkbox"
                   key="man"
                   variant="outline-primary"
-                  checked={age=="Kind"}
+                  checked={age=="four to tvelve"}
                   value="1"
-                  onChange={() => setAge("Kind")}
+                  onChange={() => setAge("four to tvelve")}
                 >
                   Kind
               </ToggleButton>
@@ -228,9 +228,9 @@ const Home = () => {
                   type="checkbox"
                   key="man"
                   variant="outline-primary"
-                  checked={age=="Teenager"}
+                  checked={age=="13 to 17"}
                   value="1"
-                  onChange={() => setAge("Teenager")}
+                  onChange={() => setAge("13 to 17")}
                 >
                   Teenager
               </ToggleButton>
@@ -240,9 +240,9 @@ const Home = () => {
                   type="checkbox"
                   key="man"
                   variant="outline-primary"
-                  checked={age=="20 bis 30"}
+                  checked={age=="20 to 30"}
                   value="1"
-                  onChange={() => setAge("20 bis 30")}
+                  onChange={() => setAge("20 to 30")}
                 >
                   20 bis 30
               </ToggleButton>
@@ -252,11 +252,11 @@ const Home = () => {
                   type="checkbox"
                   key="man"
                   variant="outline-primary"
-                  checked={age=="30 bis 50"}
+                  checked={age=="31 to 50"}
                   value="1"
-                  onChange={() => setAge("30 bis 50")}
+                  onChange={() => setAge("31 bis 50")}
                 >
-                  30 bis 50
+                  31 bis 50
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
@@ -264,11 +264,11 @@ const Home = () => {
                   type="checkbox"
                   key="man"
                   variant="outline-primary"
-                  checked={age=="50 bis 65"}
+                  checked={age=="51 bis 65"}
                   value="1"
-                  onChange={() => setAge("50 bis 65")}
+                  onChange={() => setAge("51 bis 65")}
                 >
-                  50 bis 65
+                  51 bis 65
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
@@ -276,11 +276,11 @@ const Home = () => {
                   type="checkbox"
                   key="man"
                   variant="outline-primary"
-                  checked={age=="Elderly"}
+                  checked={age=="older than 65"}
                   value="1"
-                  onChange={() => setAge("Elderly")}
+                  onChange={() => setAge("older than 65")}
                 >
-                  Elderly
+                  Älter als 65
               </ToggleButton>
             </div>)}
             <div className='button-container'>
