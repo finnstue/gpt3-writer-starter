@@ -22,6 +22,7 @@ const Home = () => {
   const hellogello = {"isBestSeller":false, "product_title":"Apple iPhone X 64 GB Space Grey (Refurbished)", "product_main_image_url":"https://m.media-amazon.com/images/I/611fy2og0QL._AC_UY218_.jpg", "app_sale_price":"309.00", "app_sale_price_currency":"€", "isPrime":false, "product_detail_url":"https://www.amazon.de/dp/B07985C44N", "product_id":"B07985C44N", "evaluate_rate":"3.9 out of 5 stars", "original_price":"€582.50"}
   const [userInput, setUserInput] = useState('');
   const [interests, setInterests] = useState([]);
+  const [didGenerate,setDidGenerate] = useState(false);
 
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
@@ -140,6 +141,7 @@ const Home = () => {
     }
 
     setIsGenerating(false);
+    setDidGenerate(true);
   }
   return (
       <div className="root">
@@ -316,7 +318,7 @@ const Home = () => {
                   Zurück
               </ToggleButton> */}
             </div>
-            <div className='button-container2'>
+            <div className='button-container'>
             {(gender!=="") && age!=="" && pricemax!=="" && categoriesArray.map(element =>
               <div>
                 <h2 className='divh2'>{element[0]}</h2>
@@ -346,171 +348,9 @@ const Home = () => {
               </div>
               )}
             </div>
-            {/* <div className='button-container3'>
-              {(category=="Entertainment") && entertainmentArray.map(element => <ToggleButton
-                className="mb-2 color-btn"
-                key={element}
-                id={element}
-                type="checkbox"
-                variant="outline-primary"
-                checked={interests.includes(element)}
-                value="1"
-                onChange={() => {
-                  if (interests.includes(element)) {
-                    let newInterests = interests.filter(item => item !== element)
-                    setInterests(newInterests)
-                  } else {
-                    setInterests([...interests,element])
-                  }
-                  console.log(interests)
-                }}
-              >
-                {element}
-              </ToggleButton>)}
-              {(category=="Food and Drink") && foodArray.map(element => <ToggleButton
-                className="mb-2 color-btn"
-                key={element}
-                id={element}
-                type="checkbox"
-                variant="outline-primary"
-                checked={interests.includes(element)}
-                value="1"
-                onChange={() => {
-                  if (interests.includes(element)) {
-                    let newInterests = interests.filter(item => item !== element)
-                    setInterests(newInterests)
-                  } else {
-                    setInterests([...interests,element])
-                  }
-                  console.log(interests)
-                }}
-              >
-                {element}
-              </ToggleButton>)}
-              {(category=="Home and Family") && homeArray.map(element => <ToggleButton
-                className="mb-2 color-btn"
-                key={element}
-                id={element}
-                type="checkbox"
-                variant="outline-primary"
-                checked={interests.includes(element)}
-                value="1"
-                onChange={() => {
-                  if (interests.includes(element)) {
-                    let newInterests = interests.filter(item => item !== element)
-                    setInterests(newInterests)
-                  } else {
-                    setInterests([...interests,element])
-                  }
-                  console.log(interests)
-                }}
-              >
-                {element}
-              </ToggleButton>)}
-              {(category=="Nature & Outdoors") && natureArray.map(element => <ToggleButton
-                className="mb-2 color-btn"
-                key={element}
-                id={element}
-                type="checkbox"
-                variant="outline-primary"
-                checked={interests.includes(element)}
-                value="1"
-                onChange={() => {
-                  if (interests.includes(element)) {
-                    let newInterests = interests.filter(item => item !== element)
-                    setInterests(newInterests)
-                  } else {
-                    setInterests([...interests,element])
-                  }
-                  console.log(interests)
-                }}
-              >
-                {element}
-              </ToggleButton>)}
-              {(category=="Music") && musicArray.map(element => <ToggleButton
-                className="mb-2 color-btn"
-                key={element}
-                id={element}
-                type="checkbox"
-                variant="outline-primary"
-                checked={interests.includes(element)}
-                value="1"
-                onChange={() => {
-                  if (interests.includes(element)) {
-                    let newInterests = interests.filter(item => item !== element)
-                    setInterests(newInterests)
-                  } else {
-                    setInterests([...interests,element])
-                  }
-                  console.log(interests)
-                }}
-              >
-                {element}
-              </ToggleButton>)}
-              {(category=="Skills") && skillsArray.map(element => <ToggleButton
-                className="mb-2 color-btn"
-                key={element}
-                id={element}
-                type="checkbox"
-                variant="outline-primary"
-                checked={interests.includes(element)}
-                value="1"
-                onChange={() => {
-                  if (interests.includes(element)) {
-                    let newInterests = interests.filter(item => item !== element)
-                    setInterests(newInterests)
-                  } else {
-                    setInterests([...interests,element])
-                  }
-                  console.log(interests)
-                }}
-              >
-                {element}
-              </ToggleButton>)}
-              {(category=="Sports and Activities") && sportsArray.map(element => <ToggleButton
-                className="mb-2 color-btn"
-                key={element}
-                id={element}
-                type="checkbox"
-                variant="outline-secondary"
-                checked={interests.includes(element)}
-                value="1"
-                onChange={() => {
-                  if (interests.includes(element)) {
-                    let newInterests = interests.filter(item => item !== element)
-                    setInterests(newInterests)
-                  } else {
-                    setInterests([...interests,element])
-                  }
-                  console.log(interests)
-                }}
-              >
-                {element}
-              </ToggleButton>)}
-              {(category=="Travel & Adventure") && travelArray.map(element => <ToggleButton
-                className="mb-2 color-btn"
-                key={element}
-                id={element}
-                type="checkbox"
-                variant="outline-primary"
-                checked={interests.includes(element)}
-                value="1"
-                onChange={() => {
-                  if (interests.includes(element)) {
-                    let newInterests = interests.filter(item => item !== element)
-                    setInterests(newInterests)
-                  } else {
-                    setInterests([...interests,element])
-                  }
-                  console.log(interests)
-                }}
-              >
-                {element}
-              </ToggleButton>)}
-            </div> */}
             {interests.length > 3 && (
             <div className="prompt-container">
-              <div className="prompt-buttons">
+              <div className="prompt-buttons overlay">
                 <a className={isGenerating ? 'generate-button loading' : 'generate-button'} onClick={callGenerateEndpoint}>
                   <div className="generate">
                   {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
@@ -520,6 +360,7 @@ const Home = () => {
             </div>)}
             {isGenerating ? <div>Please wait</div> : <div></div>}
           </div>)}
+          {didGenerate ?
           <div className="output">
             <div className="output-content">
               {amazonoutput!==[] && (
@@ -608,7 +449,7 @@ const Home = () => {
                 </div>
               )}
             </div>
-          </div>
+          </div> : <div></div>}
         </div>
       </div>
   );

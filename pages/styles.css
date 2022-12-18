@@ -50,7 +50,6 @@ body {
     width: 100%;
     font-weight: 700;
     font-size: 72px;
-    /* letter-spacing: -4px; */
     line-height: 1.2em;
     text-align: center;
     margin: 0;
@@ -65,15 +64,13 @@ body {
 }
 
 .prompt-container {
-    place-content: flex-end center;
-    align-items: center;
-    display: flex;
-    flex: 0 0 auto;
-    flex-flow: column nowrap;
-    gap: 16px;
-    height: min-content;
-    padding: 0px;
-    width: min-content;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 16px;
+  height: min-content;
+  padding: 0px;
+  width: 100%;
 }
 
 .prompt-box {
@@ -83,8 +80,8 @@ body {
     border-right-width: 1px;
     border-style: solid;
     border-top-width: 1px;
-    place-content: flex-start;
-    align-items: flex-start;
+    place-content: center;
+    align-items: center;
     background-color: rgba(7, 2, 41, 0.05);
     border-radius: 16px;
     display: flex;
@@ -164,7 +161,26 @@ textarea {
 }
 
 .or p {
-    color: rgba(7, 2, 41, 0.25)
+    color: rgba(255, 255, 255, 0.25)
+}
+
+header {
+  z-index: 0;
+}
+
+.one {
+  position: relative;
+  width: 100%;
+  z-index: 3;
+}
+
+.overlay {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
 
 .generate-button {
@@ -184,6 +200,9 @@ textarea {
     width: min-content;
     will-change: transform;
     cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .generate {
@@ -430,20 +449,6 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
   background-color: #ddddddf1;
-}
-
-.button-container2 {
-  display: flex;
-  justify-content: space-evenly;
-  flex: 0 0 auto;
-  width: 90%;
-}
-
-.button-container3 {
-  display: flex;
-  justify-content: space-evenly;
-  flex: 0 0 auto;
-  width: 90%;
 }
 
 .button-container {
