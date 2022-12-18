@@ -64,7 +64,7 @@ const Home = () => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': process.env.OPENAI_API_KEY,
+        'X-RapidAPI-Key': process.env.RAPID_AMAZON_API_KEY,
         'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
       }
     };
