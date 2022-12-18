@@ -64,7 +64,7 @@ const Home = () => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': process.env.RAPID_AMAZON_API_KEY,
+        'X-RapidAPI-Key': 'd07fd643fcmshb27e56e9b67ae1bp1d3c8fjsnc56dc2154cb5',
         'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
       }
     };
@@ -518,60 +518,93 @@ const Home = () => {
                 </a>
               </div>
             </div>)}
+            {isGenerating ? <div>Please wait</div> : <div></div>}
           </div>)}
           <div className="output">
             <div className="output-content">
               {amazonoutput!==[] && (
-              <div class="card mb-2 d-inline-block">
-                {/* <img class="card-img-top" src={amazonoutput.product_main_image_url}></img> */}
-                <div className="card-body">
-                  <h3 className="card-title h5">{amazonoutput.product_title}</h3>
-                  <div className="card-subtitle text-muted">{amazonoutput.evaluate_rate}</div>
-                  <div className='cardflex'>
-                    <p className="card-text">{amazonoutput.app_sale_price}{amazonoutput.app_sale_price_currency}</p>
-                    <a href={amazonoutput.product_detail_url} className="card-link"></a>
+                <div>
+                  <img src={amazonoutput.product_main_image_url} className='imgflex'></img>
+                  <div class="card mb-2 d-inline-block">
+                    <div className="card-body">
+                      <h3 className="card-title h5">{amazonoutput.product_title}</h3>
+                        <div className='cardflex'>
+                          <p className="card-text">{amazonoutput.evaluate_rate}</p>
+                          <a href={amazonoutput.product_detail_url}>
+                            <p className="card-text">{amazonoutput.app_sale_price}{amazonoutput.app_sale_price_currency}</p>
+                          </a>
+                        </div>
+                    </div>
                   </div>
+                  <br />
                 </div>
-              </div>
               )}
               {amazonoutput2 && (
                 <div>
-                  <p>{amazonoutput2.product_title}</p>
-                  <a href={amazonoutput2.product_detail_url}>
-                    <p>{amazonoutput2.app_sale_price}{amazonoutput2.app_sale_price_currency}</p>
-                  </a>
-                  <p>{amazonoutput2.evaluate_rate}</p>
-                  <img src={amazonoutput2.product_main_image_url}></img>
+                  <img src={amazonoutput2.product_main_image_url} className='imgflex'></img>
+                  <div class="card mb-2 d-inline-block">
+                    <div className="card-body">
+                      <h3 className="card-title h5">{amazonoutput2.product_title}</h3>
+                        <div className='cardflex'>
+                          <p className="card-text">{amazonoutput2.evaluate_rate}</p>
+                          <a href={amazonoutput2.product_detail_url}>
+                            <p className="card-text">{amazonoutput2.app_sale_price}{amazonoutput2.app_sale_price_currency}</p>
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <br />
                 </div>
               )}
               {amazonoutput3 && (
                 <div>
-                  <p>{amazonoutput3.product_title}</p>
-                  <a href={amazonoutput3.product_detail_url}>
-                    <p>{amazonoutput3.app_sale_price}{amazonoutput3.app_sale_price_currency}</p>
-                  </a>
-                  <p>{amazonoutput3.evaluate_rate}</p>
-                  <img src={amazonoutput3.product_main_image_url}></img>
+                  <img src={amazonoutput3.product_main_image_url} className='imgflex'></img>
+                  <div class="card mb-2 d-inline-block">
+                    <div className="card-body">
+                      <h3 className="card-title h5">{amazonoutput3.product_title}</h3>
+                        <div className='cardflex'>
+                          <p className="card-text">{amazonoutput3.evaluate_rate}</p>
+                          <a href={amazonoutput3.product_detail_url}>
+                            <p className="card-text">{amazonoutput3.app_sale_price}{amazonoutput3.app_sale_price_currency}</p>
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <br />
                 </div>
               )}
               {amazonoutput4 && (
                 <div>
-                  <p>{amazonoutput4.product_title}</p>
-                  <a href={amazonoutput4.product_detail_url}>
-                    <p>{amazonoutput4.app_sale_price}{amazonoutput4.app_sale_price_currency}</p>
-                  </a>
-                  <p>{amazonoutput4.evaluate_rate}</p>
-                  <img src={amazonoutput4.product_main_image_url}></img>
+                  <img src={amazonoutput4.product_main_image_url} className='imgflex'></img>
+                  <div class="card mb-2 d-inline-block">
+                    <div className="card-body">
+                      <h3 className="card-title h5">{amazonoutput4.product_title}</h3>
+                        <div className='cardflex'>
+                          <p className="card-text">{amazonoutput4.evaluate_rate}</p>
+                          <a href={amazonoutput4.product_detail_url}>
+                            <p className="card-text">{amazonoutput4.app_sale_price}{amazonoutput4.app_sale_price_currency}</p>
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <br />
                 </div>
               )}
               {amazonoutput5 && (
                 <div>
-                  <p>{amazonoutput5.product_title}</p>
-                  <a href={amazonoutput5.product_detail_url}>
-                    <p>{amazonoutput5.app_sale_price}{amazonoutput5.app_sale_price_currency}</p>
-                  </a>
-                  <p>{amazonoutput5.evaluate_rate}</p>
-                  <img src={amazonoutput5.product_main_image_url}></img>
+                  <img src={amazonoutput5.product_main_image_url} className='imgflex'></img>
+                  <div class="card mb-2 d-inline-block">
+                    <div className="card-body">
+                      <h3 className="card-title h5">{amazonoutput5.product_title}</h3>
+                        <div className='cardflex'>
+                          <p className="card-text">{amazonoutput5.evaluate_rate}</p>
+                          <a href={amazonoutput5.product_detail_url}>
+                            <p className="card-text">{amazonoutput5.app_sale_price}{amazonoutput5.app_sale_price_currency}</p>
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <br />
                 </div>
               )}
             </div>

@@ -507,4 +507,12 @@ tr:nth-child(odd) {
 
 .card {
   border: none !important;
+  width: 100%;
+}
+
+.imgflex {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
