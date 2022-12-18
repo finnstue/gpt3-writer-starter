@@ -8,14 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
 const Home = () => {
-  const entertainmentArray = ["Board Games and Puzzles","Card Games","Current Affairs","History","Movie Geek","Reading","Retro and Old School","SciFi and Fantasy","Superhero","Video Games"];
-  const foodArray = ["Baking", "Barbeque", "Beer", "Carnivore", "Cocktails", "Coffee", "Cooking", "Restaurants", "Sweets", "Snacks and Treats", "Vegan", "Vegetarian", "Whiskey", "Wine"];
-  const homeArray = ["Babies", "Cats", "Dogs", "Entertaining", "Gardening", "House and Home", "Other Pets", "Outdoor Living", "Parenting", "Smart Home"];
-  const musicArray = ["Drums", "Guitar", "Live Music", "Festivals", "Musician", "Listeing to Music", "MusicMaking", "Piano and Keyboard", "Recording", "Singing"]  ;
-  const natureArray = ["Animals", "Bird Watching", "Conservation", "Farming", "Natural History and Geology", "Nature", "Science", "Space"];
-  const skillsArray = ["Aviation", "Computers and Software", "DIY Enthusiast", "Graphic Design", "Hobbyist", "Interior Design", "Languages", "Painting and Drawing", "Photography", "Sculpture", "Woodworking", "Writing"];
-  const sportsArray = ["American Football", "Baseball", "Climbing", "CrossFit", "Cycling", "Football", "Golf", "Gym", "Hiking", "Hunting", "MotorSports", "Snowsports", "Trail", "Running", "Triathlon", "Water Sports", "Yoga"];
-  const travelArray = ["Beach","Camping","Glamping","Luxury","Overseas Travel","Road Trips"];
+  const entertainmentArray = ["Boardgames","Puzzles","Cardgames","Current Affairs","History","Movie Geek","Reading","Retro", "Old School","SciFi","Fantasy","Superhero","Video Games"];
+  const foodArray = ["Baking", "Barbeque", "Beer", "Carnivore", "Cocktails", "Coffee", "Cooking", "Restaurants", "Sweets", "Snacks", "Vegan", "Vegetarian", "Whiskey", "Wine"];
+  const homeArray = ["Babies", "Cats", "Dogs", "Entertaining", "Gardening", "House & Home", "Other Pets", "Outdoor Living", "Parenting", "Smart Home"];
+  const musicArray = ["Drums", "Guitar", "Live Music", "Festivals", "Musician", "Listening to Music", "MusicMaking", "Piano","Keyboard", "Recording", "Singing"]  ;
+  const natureArray = ["Animals", "Bird Watching", "Conservation", "Farming", "Natural History", "Geology", "Nature", "Science", "Space"];
+  const skillsArray = ["Aviation", "Computers", "Software", "DIY Enthusiast", "Graphic Design", "Hobbyist", "Interior Design", "Languages", "Painting", "Drawing", "Photography", "Sculpture", "Woodworking", "Writing"];
+  const sportsArray = ["American Football", "Baseball", "Climbing", "CrossFit", "Cycling", "Football", "Golf", "Gym", "Hiking", "Hunting", "MotorSports", "Snowsports", "Trail", "Running", "Triathlon", "Watersports", "Yoga"];
+  const travelArray = ["Beach","Camping","Glamping","Luxury","Travel","Road Trips"];
   const pricesArray = ["1€","5€","10€","20€","30€","40€","50€","75€","100€","150€","200€","300€","400€"]
   const categoriesArray = [["Entertainment",entertainmentArray],["Food and Drink",foodArray],["Home and Family",homeArray],["Music",musicArray],["Nature & Outdoors",natureArray],["Skills",skillsArray],["Sports and Activities",sportsArray],["Travel & Adventure",travelArray]];
 
@@ -64,7 +64,7 @@ const Home = () => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': 'dae9c8474cmshda391c24b0cf5a1p114eeajsndc0899068c49',
+        'X-RapidAPI-Key': process.env.OPENAI_API_KEY,
         'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
       }
     };
@@ -80,12 +80,10 @@ const Home = () => {
       }
       const data = await response.json();
       setAmazonoutput(data["docs"][0]);
-      // setAmazonoutput([...amazonoutput,data["docs"][0]]);
-      // console.log([...amazonoutput,data["docs"][0]]);
+      console.log(data["docs"][0]);
     }
-    // await new Promise(r => setTimeout(r,1800));
-    // }
-    await new Promise(r => setTimeout(r,1800));
+
+    await new Promise(r => setTimeout(r,5000));
 
     getResponse2();
     async function getResponse2() {
@@ -96,9 +94,10 @@ const Home = () => {
       }
       const data = await response.json();
       setAmazonoutput2(data["docs"][0]);
+      console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,1800));
+    await new Promise(r => setTimeout(r,5000));
 
     getResponse3();
     async function getResponse3() {
@@ -109,9 +108,10 @@ const Home = () => {
       }
       const data = await response.json();
       setAmazonoutput3(data["docs"][0]);
+      console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,1800));
+    await new Promise(r => setTimeout(r,5000));
 
     getResponse4();
     async function getResponse4() {
@@ -122,9 +122,10 @@ const Home = () => {
       }
       const data = await response.json();
       setAmazonoutput4(data["docs"][0]);
+      console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,1800));
+    await new Promise(r => setTimeout(r,5000));
 
     getResponse5();
     async function getResponse5() {
@@ -135,6 +136,7 @@ const Home = () => {
       }
       const data = await response.json();
       setAmazonoutput5(data["docs"][0]);
+      console.log(data["docs"][0]);
     }
 
     setIsGenerating(false);
@@ -152,11 +154,15 @@ const Home = () => {
               {age!=="" && gender!== "" && pricemax=="" && (
               <h1>Maximaler Preis für das Geschenk?</h1>)}
               {age!=="" && gender!== "" && pricemax!=="" && amazonoutput=="" && (
-              <h1>Welche Interessen hat die Person?</h1>)}
+              <div>
+                <h1>Welche Interessen hat die Person?</h1>
+                <br />
+                <h4 className='h1flex'>Mindestens 4 auswählen</h4>
+              </div>)}
             </div>
           </div>
           {amazonoutput == '' && (
-          <div className='container2'>
+          <div>
             {gender=="" && (
             <div className='button-container'>
               <ToggleButton
@@ -311,20 +317,36 @@ const Home = () => {
               </ToggleButton> */}
             </div>
             <div className='button-container2'>
-            {(gender!=="") && age!=="" && pricemax!=="" && categoriesArray.map(element => <ToggleButton
-                className="mb-2 color-btn"
-                id={element[0]}
-                type="checkbox"
-                key={element}
-                variant="outline-primary"
-                checked={category==element[0]}
-                value="1"
-                onChange={() => setCategory(element[0])}
-              >
-                {element[0]}
-              </ToggleButton>)}
+            {(gender!=="") && age!=="" && pricemax!=="" && categoriesArray.map(element =>
+              <div>
+                <h2 className='divh2'>{element[0]}</h2>
+                <div className='divdiv'>
+                  {element[1].map(i =>
+                  <ToggleButton
+                    className="mb-2 color-btn"
+                    id={i}
+                    type="checkbox"
+                    key={i}
+                    variant="outline-primary"
+                    checked={interests.includes(i)}
+                    value="1"
+                    onChange={() => {
+                      if (interests.includes(i)) {
+                        let newInterests = interests.filter(item => item !== i)
+                        setInterests(newInterests)
+                      } else {
+                        setInterests([...interests,i])
+                      }
+                    }}
+                    >
+                    {i}
+                  </ToggleButton>)}
+                </div>
+                <br />
+              </div>
+              )}
             </div>
-            <div className='button-container3'>
+            {/* <div className='button-container3'>
               {(category=="Entertainment") && entertainmentArray.map(element => <ToggleButton
                 className="mb-2 color-btn"
                 key={element}
@@ -485,7 +507,7 @@ const Home = () => {
               >
                 {element}
               </ToggleButton>)}
-            </div>
+            </div> */}
             {interests.length > 3 && (
             <div className="prompt-container">
               <div className="prompt-buttons">
@@ -502,12 +524,12 @@ const Home = () => {
               {amazonoutput!==[] && (
               <div class="card mb-2 d-inline-block">
                 {/* <img class="card-img-top" src={amazonoutput.product_main_image_url}></img> */}
-                <div class="card-body">
-                  <h3 class="card-title h5">{amazonoutput.product_title}</h3>
-                  <div class="card-subtitle text-muted">{amazonoutput.evaluate_rate}</div>
+                <div className="card-body">
+                  <h3 className="card-title h5">{amazonoutput.product_title}</h3>
+                  <div className="card-subtitle text-muted">{amazonoutput.evaluate_rate}</div>
                   <div className='cardflex'>
-                    <p class="card-text">{amazonoutput.app_sale_price}{amazonoutput.app_sale_price_currency}</p>
-                    <a href={amazonoutput.product_detail_url} class="card-link"></a>
+                    <p className="card-text">{amazonoutput.app_sale_price}{amazonoutput.app_sale_price_currency}</p>
+                    <a href={amazonoutput.product_detail_url} className="card-link"></a>
                   </div>
                 </div>
               </div>

@@ -33,21 +33,6 @@ body {
     gap: 64px;
 }
 
-.container2 {
-  display: flex;
-  place-content: center flex-start;
-  align-items: center;
-  flex: 0 0 auto;
-  flex-flow: column nowrap;
-  gap: 10px;
-  height: fit-content;
-  max-width: 975px;
-  overflow: auto;
-  position: relative;
-  width: auto;
-  gap: 64px;
-}
-
 .header {
     display: flex;
     flex-direction: column;
@@ -447,13 +432,6 @@ tr:nth-child(odd) {
   background-color: #ddddddf1;
 }
 
-.button-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex: 0 0 auto;
-  width: 300px;
-}
-
 .button-container2 {
   display: flex;
   justify-content: space-evenly;
@@ -472,9 +450,26 @@ tr:nth-child(odd) {
   display: flex;
   justify-content: center;
   flex: 0 0 auto;
-  width: 300px;
   flex-wrap: wrap;
   gap: 5px;
+}
+
+.divdiv {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.divh2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.h1flex {
+  display: flex;
+  justify-content: center;
 }
 
 .button-container2 {
@@ -490,7 +485,6 @@ tr:nth-child(odd) {
   display: flex;
   justify-content: center;
   flex: 0 0 auto;
-  width: 90%;
   flex-wrap: wrap;
   gap: 5px;
 }

@@ -12,18 +12,11 @@ const basePromptPrefix =
 
 const generateAction = async (req, res) => {
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}
-  Person's Gender: ${req.body.gender}
-  Person's Interests: ${req.body.interests}
-  Person's Country: Germany;
-  Gift Price Maximum: €150.00;
-  Gift Price Minimum: €10.00;
-  Gift Intent: Fun or Practical
-  `)
+  console.log(`API: Generate 5 fun or practical gift ideas from Amazon.com, for a ${req.body.age} year old ${req.body.gender} from Germany who is interested in ${req.body.interests}. The gift price should be below €${req.body.pricemax}. Format the output as a JSON and only include brand and name in lower case.`)
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `Generate 5 fun or practical gift ideas from Amazon.com, for a ${req.body.age} year old ${req.body.gender} from Germany who is interested in ${req.body.interests}. The gift price should be between €20 and €40. Format the output as a JSON and only include brand and name in lower case.
+    prompt: `Generate 5 fun or practical gift ideas from Amazon.com, for a ${req.body.age} year old ${req.body.gender} from Germany who is interested in ${req.body.interests}. The gift price should be below €${req.body.pricemax}. Format the output as a JSON and only include brand and name in lower case.
     \n`,
     temperature: 0.7,
     max_tokens: 400,
