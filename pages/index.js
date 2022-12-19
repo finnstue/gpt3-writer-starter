@@ -42,18 +42,26 @@ const Home = () => {
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
 
-    console.log("Calling OpenAI...")
+    console.log("Calling OpenAI...");
+    console.log("hello");
+    console.log(JSON.stringify({ gender, interests, pricemax, age }));
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ gender, interests }),
+      body: JSON.stringify({ gender, interests, pricemax, age }),
     });
+
+    console.log("this works 4");
+    console.log(response);
 
     const data = await response.json();
     const { output } = data;
+    console.log("hello test")
     console.log("OpenAI replied...", output.text);
+
+    console.log("this works 5");
 
     setApiOutput(`${output.text}`);
     const obj2 = JSON.parse(output.text);
@@ -70,8 +78,6 @@ const Home = () => {
       }
     };
 
-    // for (let i = 0; i < obj2.length; i++) {
-      // console.log(obj2[i].brand)
     getResponse1();
     async function getResponse1() {
       const response = await fetch(
@@ -84,7 +90,9 @@ const Home = () => {
       console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,5000));
+    setDidGenerate(true);
+    setIsGenerating(false);
+    await new Promise(r => setTimeout(r,1200));
 
     getResponse2();
     async function getResponse2() {
@@ -98,7 +106,7 @@ const Home = () => {
       console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,5000));
+    await new Promise(r => setTimeout(r,1200));
 
     getResponse3();
     async function getResponse3() {
@@ -112,7 +120,7 @@ const Home = () => {
       console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,5000));
+    await new Promise(r => setTimeout(r,1200));
 
     getResponse4();
     async function getResponse4() {
@@ -126,7 +134,7 @@ const Home = () => {
       console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,5000));
+    await new Promise(r => setTimeout(r,1200));
 
     getResponse5();
     async function getResponse5() {
@@ -139,9 +147,6 @@ const Home = () => {
       setAmazonoutput5(data["docs"][0]);
       console.log(data["docs"][0]);
     }
-
-    setIsGenerating(false);
-    setDidGenerate(true);
   }
   return (
       <div className="root">
@@ -159,7 +164,7 @@ const Home = () => {
               <div>
                 <h1>Welche Interessen hat die Person?</h1>
                 <br />
-                <h4 className='h1flex'>Mindestens 4 auswählen</h4>
+                <h4 className='h1flex'>Bitte vier auswählen.</h4>
               </div>)}
             </div>
           </div>
@@ -173,9 +178,9 @@ const Home = () => {
                   type="checkbox"
                   key="man"
                   variant="outline-primary"
-                  checked={gender=="männlich"}
+                  checked={gender=="man"}
                   value="1"
-                  onChange={() => setGender("männlich")}
+                  onChange={() => setGender("man")}
                 >
                   Männlich
               </ToggleButton>
@@ -185,9 +190,9 @@ const Home = () => {
                   type="checkbox"
                   key="woman"
                   variant="outline-primary"
-                  checked={gender=="weiblich"}
+                  checked={gender=="woman"}
                   value="1"
-                  onChange={() => setGender("weiblich")}
+                  onChange={() => setGender("woman")}
                 >
                   Weiblich
               </ToggleButton>
@@ -349,7 +354,7 @@ const Home = () => {
               )}
             </div>
             {interests.length > 3 && (
-            <div className="prompt-container">
+            <div className="overlay2">
               <div className="prompt-buttons overlay">
                 <a className={isGenerating ? 'generate-button loading' : 'generate-button'} onClick={callGenerateEndpoint}>
                   <div className="generate">
@@ -358,12 +363,11 @@ const Home = () => {
                 </a>
               </div>
             </div>)}
-            {isGenerating ? <div>Please wait</div> : <div></div>}
           </div>)}
           {didGenerate ?
           <div className="output">
             <div className="output-content">
-              {amazonoutput!==[] && (
+              {amazonoutput && (
                 <div>
                   <img src={amazonoutput.product_main_image_url} className='imgflex'></img>
                   <div class="card mb-2 d-inline-block">
