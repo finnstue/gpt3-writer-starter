@@ -92,7 +92,7 @@ const Home = () => {
 
     setDidGenerate(true);
     setIsGenerating(false);
-    await new Promise(r => setTimeout(r,1200));
+    await new Promise(r => setTimeout(r,1500));
 
     getResponse2();
     async function getResponse2() {
@@ -106,7 +106,7 @@ const Home = () => {
       console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,1200));
+    await new Promise(r => setTimeout(r,1500));
 
     getResponse3();
     async function getResponse3() {
@@ -120,7 +120,7 @@ const Home = () => {
       console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,1200));
+    await new Promise(r => setTimeout(r,1500));
 
     getResponse4();
     async function getResponse4() {
@@ -134,7 +134,7 @@ const Home = () => {
       console.log(data["docs"][0]);
     }
 
-    await new Promise(r => setTimeout(r,1200));
+    await new Promise(r => setTimeout(r,1500));
 
     getResponse5();
     async function getResponse5() {
@@ -375,7 +375,7 @@ const Home = () => {
                       <h3 className="card-title h5">{amazonoutput.product_title}</h3>
                         <div className='cardflex'>
                           <p className="card-text">{amazonoutput.evaluate_rate}</p>
-                          <a href={amazonoutput.product_detail_url}>
+                          <a target={"_blank"} href={amazonoutput.product_detail_url}>
                             <p className="card-text">{amazonoutput.app_sale_price}{amazonoutput.app_sale_price_currency}</p>
                           </a>
                         </div>
@@ -392,7 +392,7 @@ const Home = () => {
                       <h3 className="card-title h5">{amazonoutput2.product_title}</h3>
                         <div className='cardflex'>
                           <p className="card-text">{amazonoutput2.evaluate_rate}</p>
-                          <a href={amazonoutput2.product_detail_url}>
+                          <a target={"_blank"} href={amazonoutput2.product_detail_url}>
                             <p className="card-text">{amazonoutput2.app_sale_price}{amazonoutput2.app_sale_price_currency}</p>
                           </a>
                         </div>
@@ -409,7 +409,7 @@ const Home = () => {
                       <h3 className="card-title h5">{amazonoutput3.product_title}</h3>
                         <div className='cardflex'>
                           <p className="card-text">{amazonoutput3.evaluate_rate}</p>
-                          <a href={amazonoutput3.product_detail_url}>
+                          <a target={"_blank"} href={amazonoutput3.product_detail_url}>
                             <p className="card-text">{amazonoutput3.app_sale_price}{amazonoutput3.app_sale_price_currency}</p>
                           </a>
                         </div>
@@ -426,7 +426,7 @@ const Home = () => {
                       <h3 className="card-title h5">{amazonoutput4.product_title}</h3>
                         <div className='cardflex'>
                           <p className="card-text">{amazonoutput4.evaluate_rate}</p>
-                          <a href={amazonoutput4.product_detail_url}>
+                          <a target={"_blank"} href={amazonoutput4.product_detail_url}>
                             <p className="card-text">{amazonoutput4.app_sale_price}{amazonoutput4.app_sale_price_currency}</p>
                           </a>
                         </div>
@@ -443,7 +443,7 @@ const Home = () => {
                       <h3 className="card-title h5">{amazonoutput5.product_title}</h3>
                         <div className='cardflex'>
                           <p className="card-text">{amazonoutput5.evaluate_rate}</p>
-                          <a href={amazonoutput5.product_detail_url}>
+                          <a target={"_blank"} href={amazonoutput5.product_detail_url}>
                             <p className="card-text">{amazonoutput5.app_sale_price}{amazonoutput5.app_sale_price_currency}</p>
                           </a>
                         </div>
