@@ -165,7 +165,7 @@ const Home = () => {
               {age=="" && gender!== "" && (
               <h1>How old is the person?</h1>)}
               {age!=="" && gender!== "" && pricemax=="" && (
-              <h1>Maximum Price for the Present?</h1>)}
+              <h1>Max Price of the Gift?</h1>)}
               {age!=="" && gender!== "" && pricemax!=="" && apiOutput=="" && didGenerate!==true && (
               <div>
                 <h1>What is the person interested in?</h1>
