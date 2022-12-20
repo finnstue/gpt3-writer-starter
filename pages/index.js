@@ -47,6 +47,7 @@ const Home = () => {
   }
 
   const callGenerateEndpoint = async () => {
+    setDidGenerate(true);
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
@@ -93,7 +94,6 @@ const Home = () => {
     // }
 
     setIsGenerating(false);
-    setDidGenerate(true);
     // await new Promise(r => setTimeout(r,1500));
 
     // getResponse2();
@@ -162,7 +162,7 @@ const Home = () => {
               <h1>Wie alt ist die Person?</h1>)}
               {age!=="" && gender!== "" && pricemax=="" && (
               <h1>Maximaler Preis für das Geschenk?</h1>)}
-              {age!=="" && gender!== "" && pricemax!=="" && apiOutput=="" && (
+              {age!=="" && gender!== "" && pricemax!=="" && apiOutput=="" && didGenerate!==true && (
               <div>
                 <h1>Welche Interessen hat die Person?</h1>
                 <br />
@@ -170,7 +170,7 @@ const Home = () => {
               </div>)}
             </div>
           </div>
-          {apiOutput == '' && (
+          {didGenerate!==true && (
           <div>
             {gender=="" && (
             <div className='button-container'>
@@ -331,7 +331,7 @@ const Home = () => {
                 <h2 className='divh2'>{element[0]}</h2>
                 <div className='divdiv'>
                   {element[1].map(i =>
-                  <ToggleButton
+                  (interests.length < 3) ? <ToggleButton
                     className="mb-2 color-btn"
                     id={i}
                     type="checkbox"
@@ -349,13 +349,31 @@ const Home = () => {
                     }}
                     >
                     {i}
+                  </ToggleButton> : <ToggleButton
+                    className="mb-2 color-btn"
+                    id={i}
+                    type="checkbox"
+                    key={i}
+                    variant="outline-primary"
+                    checked={interests.includes(i)}
+                    value="1"
+                    onClick={callGenerateEndpoint}
+                    onChange={() => {
+                      if (interests.includes(i)) {
+                        let newInterests = interests.filter(item => item !== i)
+                        setInterests(newInterests)
+                      } else {
+                        setInterests([...interests,i])
+                      }
+                    }}
+                    >
+                    {i}
                   </ToggleButton>)}
                 </div>
                 <br />
               </div>
               )}
-            </div>
-            {interests.length > 3 && (
+            {/* {interests.length > 3 && (
             <div className="overlay2">
               <div className="prompt-buttons overlay">
                 <a className={isGenerating ? 'generate-button loading' : 'generate-button'} onClick={callGenerateEndpoint}>
@@ -364,9 +382,11 @@ const Home = () => {
                   </div>
                 </a>
               </div>
-            </div>)}
+            </div>)} */}
+            </div>
           </div>)}
-          {didGenerate ?
+          {isGenerating ? <div><iframe src="https://giphy.com/embed/hFmIU5GQF18Aw" width="343" height="480" class="giphy-embed" allowFullScreen></iframe></div> : <div></div>}
+          {apiOutput ?
           <div>
             <div className="header-title"><h1>Deine Geschenkidee</h1></div>
             <div className="output">
@@ -378,7 +398,6 @@ const Home = () => {
                   <a target={"_blank"} href={`https://www.amazon.de/s?k=${i.brand}+${i.name}&crid=6KTS57CKQVK5&sprefix=peter%2Caps%2C91&ref=nb_sb_noss_1`} className="no-underline">
                     <h4>{capitalizeWords(i.brand)}: {capitalizeWords(i.name)}</h4>
                   </a>
-                  {/* <p>{i.name.charAt(0).toUpperCase() + i.name.slice(1)}</p> */}
                 </div>
                 )}
                 {/* {JSON.parse(apiOutput).map(i =>
@@ -400,18 +419,3 @@ const Home = () => {
 };
 
 export default Home;
-
-                  //   <table>
-                  //    <tr>
-                  //      <th>Brand</th>
-                  //      <th>Item</th>
-                  //      <th>Price</th>
-                  //    </tr>
-                  //  {JSON.parse(apiOutput).map(i => <div>{i.brand}</div>)}
-                  //    {JSON.parse(apiOutput).map(i =>
-                  //      <tr>
-                  //        <td>{i.brand.charAt(0).toUpperCase() + i.brand.slice(1)}</td>
-                  //        <td>{i.name.charAt(0).toUpperCase() + i.name.slice(1)}</td>
-                  //        <td>{i.price}€</td>
-                  //      </tr>)}
-                  //  </table>
