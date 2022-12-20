@@ -8,10 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
 const Home = () => {
-  const entertainmentArray = ["Boardgames","Puzzles","Cardgames","Current Affairs","History","Movie Geek","Reading","Retro", "Old School","SciFi","Fantasy","Superhero","Video Games"];
-  const foodArray = ["Baking", "Barbeque", "Beer", "Carnivore", "Cocktails", "Coffee", "Cooking", "Restaurants", "Sweets", "Snacks", "Vegan", "Vegetarian", "Whiskey", "Wine"];
-  const homeArray = ["Babies", "Cats", "Dogs", "Entertaining", "Gardening", "House & Home", "Other Pets", "Outdoor Living", "Parenting", "Smart Home"];
-  const musicArray = ["Drums", "Guitar", "Live Music", "Festivals", "Musician", "Listening to Music", "MusicMaking", "Piano","Keyboard", "Recording", "Singing"]  ;
+  const entertainmentArrayEnglish = ["Boardgames","Puzzles","Cardgames","Current Affairs","History","Movie Geek","Reading","Retro", "Old School","SciFi","Fantasy","Superhero","Video Games"];
+  const entertainmentArray = ["Brettspiele", "Puzzles", "Kartenspiele", "Zeitgeschehen", "Geschichte", "Filme", "Lesen", "Retro", "Old School", "SciFi", "Fantasy", "Superhelden", "Videospiele"];
+  const foodArrayEnglish = ["Baking", "Barbeque", "Beer", "Carnivore", "Cocktails", "Coffee", "Cooking", "Restaurants", "Sweets", "Snacks", "Vegan", "Vegetarian", "Whiskey", "Wine"];
+  const foodArray = ["Backen", "Barbecue", "Bier", "Fleischfresser", "Cocktails", "Kaffee", "Kochen", "Restaurants", "Süßigkeiten", "Snacks", "Vegan", "Vegetarisch", "Whiskey", "Wein"];
+  const homeArrayEnglish = ["Babies", "Cats", "Dogs", "Entertaining", "Gardening", "House & Home", "Other Pets", "Outdoor Living", "Parenting", "Smart Home"];
+  const homeArray = ["Babys", "Katzen", "Hunde", "Gartenarbeit", "Haus & Heim", "Andere Haustiere", "Leben im Freien", "Elternschaft", "Smart Home"];
+  const musicArrayEnglish = ["Drums", "Guitar", "Live Music", "Festivals", "Musician", "Listening to Music", "MusicMaking", "Piano","Keyboard", "Recording", "Singing"]  ;
+  const musicArray = ["Schlagzeug", "Gitarre", "Live-Musik", "Festivals", "Musik hören", "Musizieren", "Klavier", "Keyboard", "Aufnahme", "Gesang"];
   const natureArray = ["Animals", "Bird Watching", "Conservation", "Farming", "Natural History", "Geology", "Nature", "Science", "Space"];
   const skillsArray = ["Aviation", "Computers", "Software", "DIY Enthusiast", "Graphic Design", "Hobbyist", "Interior Design", "Languages", "Knitting", "Crochet", "Painting", "Drawing", "Photography", "Sculpture", "Woodworking", "Writing"];
   const sportsArray = ["American Football", "Baseball", "Climbing", "CrossFit", "Cycling", "Football", "Golf", "Gym", "Hiking", "Hunting", "MotorSports", "Snowsports", "Trail", "Running", "Triathlon", "Watersports", "Yoga"];
@@ -387,7 +391,7 @@ const Home = () => {
           {isGenerating ? <div><iframe src="https://giphy.com/embed/hFmIU5GQF18Aw" width="343" height="480" class="giphy-embed" allowFullScreen></iframe></div> : <div></div>}
           {apiOutput ?
           <div>
-            <div className="header-title"><h1>Deine Geschenkidee</h1></div>
+            <div className="header-title"><h1>Deine Geschenkideen</h1></div>
             <div className="output">
               <div className="output-content">
                 <div>
