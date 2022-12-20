@@ -161,16 +161,16 @@ const Home = () => {
             <div className="header-title">
               {/* <h1>Get the perfect gift for anyone.</h1> */}
               {gender=="" && (
-              <h1>Für wen ist das Geschenk?</h1>)}
+              <h1>Who is getting the present?</h1>)}
               {age=="" && gender!== "" && (
-              <h1>Wie alt ist die Person?</h1>)}
+              <h1>How old is the person?</h1>)}
               {age!=="" && gender!== "" && pricemax=="" && (
-              <h1>Maximaler Preis für das Geschenk?</h1>)}
+              <h1>Maximal Price for the Present?</h1>)}
               {age!=="" && gender!== "" && pricemax!=="" && apiOutput=="" && didGenerate!==true && (
               <div>
-                <h1>Welche Interessen hat die Person?</h1>
+                <h1>What is the person interested in?</h1>
                 <br />
-                <h4 className='h1flex'>Bitte mindestens vier auswählen.</h4>
+                <h4 className='h1flex'>Please choose atleast four.</h4>
               </div>)}
             </div>
           </div>
@@ -187,7 +187,7 @@ const Home = () => {
                   value="1"
                   onChange={() => setGender("man")}
                 >
-                  Männlich
+                  Man
               </ToggleButton>
               <ToggleButton
                   className="mb-2 color-btn"
@@ -199,7 +199,7 @@ const Home = () => {
                   value="1"
                   onChange={() => setGender("woman")}
                 >
-                  Weiblich
+                  Woman
               </ToggleButton>
               <ToggleButton
                   className="mb-2 color-btn"
@@ -238,7 +238,7 @@ const Home = () => {
                   value="1"
                   onChange={() => setAge("ten year old")}
                 >
-                  Kind
+                  Child
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
@@ -262,7 +262,7 @@ const Home = () => {
                   value="1"
                   onChange={() => setAge("24 year old")}
                 >
-                  20 bis 30
+                  20 to 30
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
@@ -274,7 +274,7 @@ const Home = () => {
                   value="1"
                   onChange={() => setAge("40 year old")}
                 >
-                  31 bis 50
+                  31 to 50
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
@@ -286,7 +286,7 @@ const Home = () => {
                   value="1"
                   onChange={() => setAge("55 year old")}
                 >
-                  51 bis 65
+                  51 to 65
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
@@ -298,7 +298,7 @@ const Home = () => {
                   value="1"
                   onChange={() => setAge("68 year old")}
                 >
-                  Älter als 65
+                  Older than 65
               </ToggleButton>
             </div>)}
             <div className='button-container'>
@@ -395,12 +395,12 @@ const Home = () => {
               <iframe src="https://giphy.com/embed/hFmIU5GQF18Aw" width="343" height="480" className="giphys"></iframe>
             </div>
             <div className="header-title">
-              <h2>Wir generieren die Ideen..</h2>
+              <h2>We are generating ideas..</h2>
             </div>
           </div> : <div></div>}
           {apiOutput ?
           <div>
-            <div className="header-title"><h1>Deine Geschenkideen</h1></div>
+            <div className="header-title"><h1>Your Present Ideas</h1></div>
             <div className="output">
               <div className="output-content">
                 <div>
