@@ -39,11 +39,17 @@ const Home = () => {
   const [apiOutput, setApiOutput] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
 
+  function capitalizeWords(str) {
+    str = str.split(" ").map(element => {
+      return element.charAt(0).toUpperCase() + element.slice(1).toLowerCase();
+    }).join(" ");
+    return str;
+  }
+
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
-    console.log("hello");
     console.log(JSON.stringify({ gender, interests, pricemax, age }));
     const response = await fetch('/api/generate', {
       method: 'POST',
@@ -53,15 +59,11 @@ const Home = () => {
       body: JSON.stringify({ gender, interests, pricemax, age }),
     });
 
-    console.log("this works 4");
     console.log(response);
 
     const data = await response.json();
     const { output } = data;
-    console.log("hello test")
     console.log("OpenAI replied...", output.text);
-
-    console.log("this works 5");
 
     setApiOutput(`${output.text}`);
     const obj2 = JSON.parse(output.text);
@@ -70,83 +72,83 @@ const Home = () => {
 
     // hier amazon api call
 
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': 'd07fd643fcmshb27e56e9b67ae1bp1d3c8fjsnc56dc2154cb5',
-        'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
-      }
-    };
+    // const options = {
+    //   method: 'GET',
+    //   headers: {
+    //     'X-RapidAPI-Key': 'd07fd643fcmshb27e56e9b67ae1bp1d3c8fjsnc56dc2154cb5',
+    //     'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
+    //   }
+    // };
 
-    getResponse1();
-    async function getResponse1() {
-      const response = await fetch(
-        `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[0].brand}${obj2[0].name}&country=DE&page=1`, options);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setAmazonoutput(data["docs"][0]);
-      console.log(data["docs"][0]);
-    }
+    // getResponse1();
+    // async function getResponse1() {
+    //   const response = await fetch(
+    //     `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[0].brand}${obj2[0].name}&country=DE&page=1`, options);
+    //   if (!response.ok) {
+    //     throw new Error(`HTTP error! status: ${response.status}`);
+    //   }
+    //   const data = await response.json();
+    //   setAmazonoutput(data["docs"][0]);
+    //   console.log(data["docs"][0]);
+    // }
 
-    setDidGenerate(true);
     setIsGenerating(false);
-    await new Promise(r => setTimeout(r,1500));
+    setDidGenerate(true);
+    // await new Promise(r => setTimeout(r,1500));
 
-    getResponse2();
-    async function getResponse2() {
-      const response = await fetch(
-        `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[1].brand}${obj2[1].name}&country=DE&page=1`, options);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setAmazonoutput2(data["docs"][0]);
-      console.log(data["docs"][0]);
-    }
+    // getResponse2();
+    // async function getResponse2() {
+    //   const response = await fetch(
+    //     `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[1].brand}${obj2[1].name}&country=DE&page=1`, options);
+    //   if (!response.ok) {
+    //     throw new Error(`HTTP error! status: ${response.status}`);
+    //   }
+    //   const data = await response.json();
+    //   setAmazonoutput2(data["docs"][0]);
+    //   console.log(data["docs"][0]);
+    // }
 
-    await new Promise(r => setTimeout(r,1500));
+    // await new Promise(r => setTimeout(r,1500));
 
-    getResponse3();
-    async function getResponse3() {
-      const response = await fetch(
-        `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[2].brand}${obj2[2].name}&country=DE&page=1`, options);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setAmazonoutput3(data["docs"][0]);
-      console.log(data["docs"][0]);
-    }
+    // getResponse3();
+    // async function getResponse3() {
+    //   const response = await fetch(
+    //     `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[2].brand}${obj2[2].name}&country=DE&page=1`, options);
+    //   if (!response.ok) {
+    //     throw new Error(`HTTP error! status: ${response.status}`);
+    //   }
+    //   const data = await response.json();
+    //   setAmazonoutput3(data["docs"][0]);
+    //   console.log(data["docs"][0]);
+    // }
 
-    await new Promise(r => setTimeout(r,1500));
+    // await new Promise(r => setTimeout(r,1500));
 
-    getResponse4();
-    async function getResponse4() {
-      const response = await fetch(
-        `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[3].brand}${obj2[3].name}&country=DE&page=1`, options);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setAmazonoutput4(data["docs"][0]);
-      console.log(data["docs"][0]);
-    }
+    // getResponse4();
+    // async function getResponse4() {
+    //   const response = await fetch(
+    //     `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[3].brand}${obj2[3].name}&country=DE&page=1`, options);
+    //   if (!response.ok) {
+    //     throw new Error(`HTTP error! status: ${response.status}`);
+    //   }
+    //   const data = await response.json();
+    //   setAmazonoutput4(data["docs"][0]);
+    //   console.log(data["docs"][0]);
+    // }
 
-    await new Promise(r => setTimeout(r,1500));
+    // await new Promise(r => setTimeout(r,1500));
 
-    getResponse5();
-    async function getResponse5() {
-      const response = await fetch(
-        `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[4].brand}${obj2[4].name}&country=DE&page=1`, options);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setAmazonoutput5(data["docs"][0]);
-      console.log(data["docs"][0]);
-    }
+    // getResponse5();
+    // async function getResponse5() {
+    //   const response = await fetch(
+    //     `https://amazon24.p.rapidapi.com/api/product?keyword=${obj2[4].brand}${obj2[4].name}&country=DE&page=1`, options);
+    //   if (!response.ok) {
+    //     throw new Error(`HTTP error! status: ${response.status}`);
+    //   }
+    //   const data = await response.json();
+    //   setAmazonoutput5(data["docs"][0]);
+    //   console.log(data["docs"][0]);
+    // }
   }
   return (
       <div className="root">
@@ -160,7 +162,7 @@ const Home = () => {
               <h1>Wie alt ist die Person?</h1>)}
               {age!=="" && gender!== "" && pricemax=="" && (
               <h1>Maximaler Preis für das Geschenk?</h1>)}
-              {age!=="" && gender!== "" && pricemax!=="" && amazonoutput=="" && (
+              {age!=="" && gender!== "" && pricemax!=="" && apiOutput=="" && (
               <div>
                 <h1>Welche Interessen hat die Person?</h1>
                 <br />
@@ -168,7 +170,7 @@ const Home = () => {
               </div>)}
             </div>
           </div>
-          {amazonoutput == '' && (
+          {apiOutput == '' && (
           <div>
             {gender=="" && (
             <div className='button-container'>
@@ -213,9 +215,9 @@ const Home = () => {
             <div className='button-container'>
               <ToggleButton
                   className="mb-2"
-                  id="toggle-check"
                   type="checkbox"
                   key="man"
+                  id='two year old'
                   variant="outline-primary"
                   checked={age=="two year old"}
                   value="1"
@@ -225,9 +227,9 @@ const Home = () => {
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
-                  id="toggle-check"
                   type="checkbox"
                   key="man"
+                  id='ten year old'
                   variant="outline-primary"
                   checked={age=="ten year old"}
                   value="1"
@@ -237,9 +239,9 @@ const Home = () => {
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
-                  id="toggle-check"
                   type="checkbox"
                   key="man"
+                  id='seventeen year old'
                   variant="outline-primary"
                   checked={age=="seventeen year old"}
                   value="1"
@@ -249,9 +251,9 @@ const Home = () => {
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
-                  id="toggle-check"
                   type="checkbox"
                   key="man"
+                  id='24 year old'
                   variant="outline-primary"
                   checked={age=="24 year old"}
                   value="1"
@@ -261,9 +263,9 @@ const Home = () => {
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
-                  id="toggle-check"
                   type="checkbox"
                   key="man"
+                  id="40 year old"
                   variant="outline-primary"
                   checked={age=="40 year old"}
                   value="1"
@@ -273,11 +275,11 @@ const Home = () => {
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
-                  id="toggle-check"
                   type="checkbox"
                   key="man"
+                  id='55 year old'
                   variant="outline-primary"
-                  checked={age=="51 bis 65"}
+                  checked={age=="55 year old"}
                   value="1"
                   onChange={() => setAge("55 year old")}
                 >
@@ -285,8 +287,8 @@ const Home = () => {
               </ToggleButton>
               <ToggleButton
                   className="mb-2"
-                  id="toggle-check"
                   type="checkbox"
+                  id='68 year old'
                   key="man"
                   variant="outline-primary"
                   checked={age=="68 year old"}
@@ -300,7 +302,7 @@ const Home = () => {
             {gender!=="" && age!=="" && pricemax=="" && pricesArray.map(element =>
               <ToggleButton
                   className="mb-2"
-                  id="toggle-check"
+                  id={element}
                   type="checkbox"
                   key={element}
                   variant="outline-primary"
@@ -365,93 +367,31 @@ const Home = () => {
             </div>)}
           </div>)}
           {didGenerate ?
-          <div className="output">
-            <div className="output-content">
-              {amazonoutput && (
+          <div>
+            <div className="header-title"><h1>Deine Geschenkidee</h1></div>
+            <div className="output">
+              <div className="output-content">
                 <div>
-                  <img src={amazonoutput.product_main_image_url} className='imgflex'></img>
-                  <div class="card mb-2 d-inline-block">
+                <br />
+                {JSON.parse(apiOutput).map(i =>
+                <div>
+                  <a target={"_blank"} href={`https://www.amazon.de/s?k=${i.brand}+${i.name}&crid=6KTS57CKQVK5&sprefix=peter%2Caps%2C91&ref=nb_sb_noss_1`} className="no-underline">
+                    <h4>{capitalizeWords(i.brand)}: {capitalizeWords(i.name)}</h4>
+                  </a>
+                  {/* <p>{i.name.charAt(0).toUpperCase() + i.name.slice(1)}</p> */}
+                </div>
+                )}
+                {/* {JSON.parse(apiOutput).map(i =>
+                  <div className="card mb-2 d-inline-block">
                     <div className="card-body">
-                      <h3 className="card-title h5">{amazonoutput.product_title}</h3>
-                        <div className='cardflex'>
-                          <p className="card-text">{amazonoutput.evaluate_rate}</p>
-                          <a target={"_blank"} href={amazonoutput.product_detail_url}>
-                            <p className="card-text">{amazonoutput.app_sale_price}{amazonoutput.app_sale_price_currency}</p>
-                          </a>
-                        </div>
+                      <a target={"_blank"} href={`https://www.amazon.de/s?k=$&crid=6KTS57CKQVK5&sprefix=peter%2Caps%2C91&ref=nb_sb_noss_1`}>
+                        <h3 className="card-title h5">{i.brand}</h3>
+                      </a>
                     </div>
                   </div>
-                  <br />
+                  )} */}
                 </div>
-              )}
-              {amazonoutput2 && (
-                <div>
-                  <img src={amazonoutput2.product_main_image_url} className='imgflex'></img>
-                  <div class="card mb-2 d-inline-block">
-                    <div className="card-body">
-                      <h3 className="card-title h5">{amazonoutput2.product_title}</h3>
-                        <div className='cardflex'>
-                          <p className="card-text">{amazonoutput2.evaluate_rate}</p>
-                          <a target={"_blank"} href={amazonoutput2.product_detail_url}>
-                            <p className="card-text">{amazonoutput2.app_sale_price}{amazonoutput2.app_sale_price_currency}</p>
-                          </a>
-                        </div>
-                    </div>
-                  </div>
-                  <br />
-                </div>
-              )}
-              {amazonoutput3 && (
-                <div>
-                  <img src={amazonoutput3.product_main_image_url} className='imgflex'></img>
-                  <div class="card mb-2 d-inline-block">
-                    <div className="card-body">
-                      <h3 className="card-title h5">{amazonoutput3.product_title}</h3>
-                        <div className='cardflex'>
-                          <p className="card-text">{amazonoutput3.evaluate_rate}</p>
-                          <a target={"_blank"} href={amazonoutput3.product_detail_url}>
-                            <p className="card-text">{amazonoutput3.app_sale_price}{amazonoutput3.app_sale_price_currency}</p>
-                          </a>
-                        </div>
-                    </div>
-                  </div>
-                  <br />
-                </div>
-              )}
-              {amazonoutput4 && (
-                <div>
-                  <img src={amazonoutput4.product_main_image_url} className='imgflex'></img>
-                  <div class="card mb-2 d-inline-block">
-                    <div className="card-body">
-                      <h3 className="card-title h5">{amazonoutput4.product_title}</h3>
-                        <div className='cardflex'>
-                          <p className="card-text">{amazonoutput4.evaluate_rate}</p>
-                          <a target={"_blank"} href={amazonoutput4.product_detail_url}>
-                            <p className="card-text">{amazonoutput4.app_sale_price}{amazonoutput4.app_sale_price_currency}</p>
-                          </a>
-                        </div>
-                    </div>
-                  </div>
-                  <br />
-                </div>
-              )}
-              {amazonoutput5 && (
-                <div>
-                  <img src={amazonoutput5.product_main_image_url} className='imgflex'></img>
-                  <div class="card mb-2 d-inline-block">
-                    <div className="card-body">
-                      <h3 className="card-title h5">{amazonoutput5.product_title}</h3>
-                        <div className='cardflex'>
-                          <p className="card-text">{amazonoutput5.evaluate_rate}</p>
-                          <a target={"_blank"} href={amazonoutput5.product_detail_url}>
-                            <p className="card-text">{amazonoutput5.app_sale_price}{amazonoutput5.app_sale_price_currency}</p>
-                          </a>
-                        </div>
-                    </div>
-                  </div>
-                  <br />
-                </div>
-              )}
+              </div>
             </div>
           </div> : <div></div>}
         </div>
@@ -460,3 +400,18 @@ const Home = () => {
 };
 
 export default Home;
+
+                  //   <table>
+                  //    <tr>
+                  //      <th>Brand</th>
+                  //      <th>Item</th>
+                  //      <th>Price</th>
+                  //    </tr>
+                  //  {JSON.parse(apiOutput).map(i => <div>{i.brand}</div>)}
+                  //    {JSON.parse(apiOutput).map(i =>
+                  //      <tr>
+                  //        <td>{i.brand.charAt(0).toUpperCase() + i.brand.slice(1)}</td>
+                  //        <td>{i.name.charAt(0).toUpperCase() + i.name.slice(1)}</td>
+                  //        <td>{i.price}€</td>
+                  //      </tr>)}
+                  //  </table>
