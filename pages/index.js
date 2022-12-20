@@ -13,7 +13,7 @@ const Home = () => {
   const homeArray = ["Babies", "Cats", "Dogs", "Entertaining", "Gardening", "House & Home", "Other Pets", "Outdoor Living", "Parenting", "Smart Home"];
   const musicArray = ["Drums", "Guitar", "Live Music", "Festivals", "Musician", "Listening to Music", "MusicMaking", "Piano","Keyboard", "Recording", "Singing"]  ;
   const natureArray = ["Animals", "Bird Watching", "Conservation", "Farming", "Natural History", "Geology", "Nature", "Science", "Space"];
-  const skillsArray = ["Aviation", "Computers", "Software", "DIY Enthusiast", "Graphic Design", "Hobbyist", "Interior Design", "Languages", "Painting", "Drawing", "Photography", "Sculpture", "Woodworking", "Writing"];
+  const skillsArray = ["Aviation", "Computers", "Software", "DIY Enthusiast", "Graphic Design", "Hobbyist", "Interior Design", "Languages", "Knitting", "Crochet", "Painting", "Drawing", "Photography", "Sculpture", "Woodworking", "Writing"];
   const sportsArray = ["American Football", "Baseball", "Climbing", "CrossFit", "Cycling", "Football", "Golf", "Gym", "Hiking", "Hunting", "MotorSports", "Snowsports", "Trail", "Running", "Triathlon", "Watersports", "Yoga"];
   const travelArray = ["Beach","Camping","Glamping","Luxury","Travel","Road Trips"];
   const pricesArray = ["1€","5€","10€","20€","30€","40€","50€","75€","100€","150€","200€","300€","400€"]
@@ -170,8 +170,7 @@ const Home = () => {
               </div>)}
             </div>
           </div>
-          {didGenerate!==true && (
-          <div>
+          {didGenerate!==true ? <div>
             {gender=="" && (
             <div className='button-container'>
               <ToggleButton
@@ -384,7 +383,7 @@ const Home = () => {
               </div>
             </div>)} */}
             </div>
-          </div>)}
+          </div> : <div></div>}
           {isGenerating ? <div><iframe src="https://giphy.com/embed/hFmIU5GQF18Aw" width="343" height="480" class="giphy-embed" allowFullScreen></iframe></div> : <div></div>}
           {apiOutput ?
           <div>
