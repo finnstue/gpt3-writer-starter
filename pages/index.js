@@ -170,7 +170,7 @@ const Home = () => {
               <div>
                 <h1>What is the person interested in?</h1>
                 <br />
-                <h4 className='h1flex'>Please choose atleast four.</h4>
+                <h4 className='h1flex'>Please choose at least four.</h4>
               </div>)}
             </div>
           </div>
@@ -407,7 +407,7 @@ const Home = () => {
                 <br />
                 {JSON.parse(apiOutput).map(i =>
                 <div>
-                  <a target={"_blank"} href={`https://www.amazon.de/s?k=${i.brand}+${i.name}&crid=6KTS57CKQVK5&sprefix=peter%2Caps%2C91&ref=nb_sb_noss_1`} className="no-underline">
+                  <a target={"_blank"} href={`https://www.amazon.de/s?k=${i.brand}+${i.name}&crid=6KTS57CKQVK5&sprefix=${i.brand}${i.name}%2Caps%2C91&ref=nb_sb_noss_1`} className="no-underline">
                     <h4>{capitalizeWords(i.brand)}: {capitalizeWords(i.name)}</h4>
                   </a>
                 </div>
