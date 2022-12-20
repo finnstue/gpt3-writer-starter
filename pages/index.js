@@ -166,7 +166,7 @@ const Home = () => {
               <div>
                 <h1>Welche Interessen hat die Person?</h1>
                 <br />
-                <h4 className='h1flex'>Bitte vier auswählen.</h4>
+                <h4 className='h1flex'>Bitte fünf auswählen.</h4>
               </div>)}
             </div>
           </div>
@@ -331,7 +331,7 @@ const Home = () => {
                 <h2 className='divh2'>{element[0]}</h2>
                 <div className='divdiv'>
                   {element[1].map(i =>
-                  (interests.length < 3) ? <ToggleButton
+                  (interests.length < 4) ? <ToggleButton
                     className="mb-2 color-btn"
                     id={i}
                     type="checkbox"
