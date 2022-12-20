@@ -8,14 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
 const Home = () => {
-  const entertainmentArrayEnglish = ["Boardgames","Puzzles","Cardgames","Current Affairs","History","Movie Geek","Reading","Retro", "Old School","SciFi","Fantasy","Superhero","Video Games"];
-  const entertainmentArray = ["Brettspiele", "Puzzles", "Kartenspiele", "Zeitgeschehen", "Geschichte", "Filme", "Lesen", "Retro", "Old School", "SciFi", "Fantasy", "Superhelden", "Videospiele"];
-  const foodArrayEnglish = ["Baking", "Barbeque", "Beer", "Carnivore", "Cocktails", "Coffee", "Cooking", "Restaurants", "Sweets", "Snacks", "Vegan", "Vegetarian", "Whiskey", "Wine"];
-  const foodArray = ["Backen", "Barbecue", "Bier", "Fleischfresser", "Cocktails", "Kaffee", "Kochen", "Restaurants", "Süßigkeiten", "Snacks", "Vegan", "Vegetarisch", "Whiskey", "Wein"];
-  const homeArrayEnglish = ["Babies", "Cats", "Dogs", "Entertaining", "Gardening", "House & Home", "Other Pets", "Outdoor Living", "Parenting", "Smart Home"];
-  const homeArray = ["Babys", "Katzen", "Hunde", "Gartenarbeit", "Haus & Heim", "Andere Haustiere", "Leben im Freien", "Elternschaft", "Smart Home"];
-  const musicArrayEnglish = ["Drums", "Guitar", "Live Music", "Festivals", "Musician", "Listening to Music", "MusicMaking", "Piano","Keyboard", "Recording", "Singing"]  ;
-  const musicArray = ["Schlagzeug", "Gitarre", "Live-Musik", "Festivals", "Musik hören", "Musizieren", "Klavier", "Keyboard", "Aufnahme", "Gesang"];
+  const entertainmentArray = ["Boardgames","Puzzles","Cardgames","Current Affairs","History","Movie Geek","Reading","Retro", "Old School","SciFi","Fantasy","Superhero","Video Games"];
+  // const entertainmentArray = ["Brettspiele", "Puzzles", "Kartenspiele", "Zeitgeschehen", "Geschichte", "Filme", "Lesen", "Retro", "Old School", "SciFi", "Fantasy", "Superhelden", "Videospiele"];
+  const foodArray = ["Baking", "Barbeque", "Beer", "Carnivore", "Cocktails", "Coffee", "Cooking", "Restaurants", "Sweets", "Snacks", "Vegan", "Vegetarian", "Whiskey", "Wine"];
+  // const foodArray = ["Backen", "Barbecue", "Bier", "Fleischfresser", "Cocktails", "Kaffee", "Kochen", "Restaurants", "Süßigkeiten", "Snacks", "Vegan", "Vegetarisch", "Whiskey", "Wein"];
+  const homeArray = ["Babies", "Cats", "Dogs", "Entertaining", "Gardening", "House & Home", "Other Pets", "Outdoor Living", "Parenting", "Smart Home"];
+  // const homeArray = ["Babys", "Katzen", "Hunde", "Gartenarbeit", "Haus & Heim", "Andere Haustiere", "Leben im Freien", "Elternschaft", "Smart Home"];
+  const musicArray = ["Drums", "Guitar", "Live Music", "Festivals", "Musician", "Listening to Music", "MusicMaking", "Piano","Keyboard", "Recording", "Singing"]  ;
+  // const musicArray = ["Schlagzeug", "Gitarre", "Live-Musik", "Festivals", "Musik hören", "Musizieren", "Klavier", "Keyboard", "Aufnahme", "Gesang"];
   const natureArray = ["Animals", "Bird Watching", "Conservation", "Farming", "Natural History", "Geology", "Nature", "Science", "Space"];
   const skillsArray = ["Aviation", "Computers", "Software", "DIY Enthusiast", "Graphic Design", "Hobbyist", "Interior Design", "Languages", "Knitting", "Crochet", "Painting", "Drawing", "Photography", "Sculpture", "Woodworking", "Writing"];
   const sportsArray = ["American Football", "Baseball", "Climbing", "CrossFit", "Cycling", "Football", "Golf", "Gym", "Hiking", "Hunting", "MotorSports", "Snowsports", "Trail", "Running", "Triathlon", "Watersports", "Yoga"];
@@ -170,7 +170,7 @@ const Home = () => {
               <div>
                 <h1>Welche Interessen hat die Person?</h1>
                 <br />
-                <h4 className='h1flex'>Bitte fünf auswählen.</h4>
+                <h4 className='h1flex'>Bitte mindestens vier auswählen.</h4>
               </div>)}
             </div>
           </div>
@@ -334,7 +334,26 @@ const Home = () => {
                 <h2 className='divh2'>{element[0]}</h2>
                 <div className='divdiv'>
                   {element[1].map(i =>
-                  (interests.length < 4) ? <ToggleButton
+                  // (interests.length < 4) ? <ToggleButton
+                  //   className="mb-2 color-btn"
+                  //   id={i}
+                  //   type="checkbox"
+                  //   key={i}
+                  //   variant="outline-primary"
+                  //   checked={interests.includes(i)}
+                  //   value="1"
+                  //   onChange={() => {
+                  //     if (interests.includes(i)) {
+                  //       let newInterests = interests.filter(item => item !== i)
+                  //       setInterests(newInterests)
+                  //     } else {
+                  //       setInterests([...interests,i])
+                  //     }
+                  //   }}
+                  //   >
+                  //   {i}
+                  // </ToggleButton> :
+                  <ToggleButton
                     className="mb-2 color-btn"
                     id={i}
                     type="checkbox"
@@ -342,25 +361,7 @@ const Home = () => {
                     variant="outline-primary"
                     checked={interests.includes(i)}
                     value="1"
-                    onChange={() => {
-                      if (interests.includes(i)) {
-                        let newInterests = interests.filter(item => item !== i)
-                        setInterests(newInterests)
-                      } else {
-                        setInterests([...interests,i])
-                      }
-                    }}
-                    >
-                    {i}
-                  </ToggleButton> : <ToggleButton
-                    className="mb-2 color-btn"
-                    id={i}
-                    type="checkbox"
-                    key={i}
-                    variant="outline-primary"
-                    checked={interests.includes(i)}
-                    value="1"
-                    onClick={callGenerateEndpoint}
+                    // onClick={callGenerateEndpoint}
                     onChange={() => {
                       if (interests.includes(i)) {
                         let newInterests = interests.filter(item => item !== i)
@@ -376,7 +377,7 @@ const Home = () => {
                 <br />
               </div>
               )}
-            {/* {interests.length > 3 && (
+            {interests.length > 3 && (
             <div className="overlay2">
               <div className="prompt-buttons overlay">
                 <a className={isGenerating ? 'generate-button loading' : 'generate-button'} onClick={callGenerateEndpoint}>
@@ -385,10 +386,18 @@ const Home = () => {
                   </div>
                 </a>
               </div>
-            </div>)} */}
+            </div>)}
             </div>
           </div> : <div></div>}
-          {isGenerating ? <div><iframe src="https://giphy.com/embed/hFmIU5GQF18Aw" width="343" height="480" class="giphy-embed" allowFullScreen></iframe></div> : <div></div>}
+          {isGenerating ?
+          <div className='button-container'>
+            <div>
+              <iframe src="https://giphy.com/embed/hFmIU5GQF18Aw" width="343" height="480" className="giphys"></iframe>
+            </div>
+            <div className="header-title">
+              <h2>Wir generieren die Ideen..</h2>
+            </div>
+          </div> : <div></div>}
           {apiOutput ?
           <div>
             <div className="header-title"><h1>Deine Geschenkideen</h1></div>
