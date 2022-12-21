@@ -164,9 +164,9 @@ const Home = () => {
               <h1>Who is getting the present?</h1>)}
               {age=="" && gender!== "" && (
               <h1>How old is the person?</h1>)}
-              {age!=="" && gender!== "" && pricemax=="" && (
-              <h1>Max Price of the Gift?</h1>)}
-              {age!=="" && gender!== "" && pricemax!=="" && apiOutput=="" && didGenerate!==true && (
+              {/* {age!=="" && gender!== "" && pricemax=="" && (
+              <h1>Max Price of the Gift?</h1>)} */}
+              {age!=="" && gender!== "" && apiOutput=="" && didGenerate!==true && (
               <div>
                 <h1>What is the person interested in?</h1>
                 <br />
@@ -302,7 +302,7 @@ const Home = () => {
               </ToggleButton>
             </div>)}
             <div className='button-container'>
-            {gender!=="" && age!=="" && pricemax=="" && pricesArray.map(element =>
+            {/* {gender!=="" && age!=="" && pricemax=="" && pricesArray.map(element =>
               <ToggleButton
                   className="mb-2"
                   id={element}
@@ -315,7 +315,7 @@ const Home = () => {
                 >
                   {element}
               </ToggleButton>
-            )}
+            )} */}
               {/* <ToggleButton
                   className="mb-2"
                   id="toggle-check"
@@ -329,7 +329,7 @@ const Home = () => {
               </ToggleButton> */}
             </div>
             <div className='button-container'>
-            {(gender!=="") && age!=="" && pricemax!=="" && categoriesArray.map(element =>
+            {(gender!=="") && age!=="" && categoriesArray.map(element =>
               <div>
                 <h2 className='divh2'>{element[0]}</h2>
                 <div className='divdiv'>
