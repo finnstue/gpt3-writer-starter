@@ -157,6 +157,7 @@ const Home = () => {
   return (
       <div className="root">
         <div className="container">
+          {didGenerate!==true ?
           <div className="header">
             <div className="header-title">
               {/* <h1>Get the perfect gift for anyone.</h1> */}
@@ -173,7 +174,7 @@ const Home = () => {
                 <h4 className='h1flex'>Please choose at least four.</h4>
               </div>)}
             </div>
-          </div>
+          </div> : <></>}
           {didGenerate!==true ? <div>
             {gender=="" && (
             <div className='button-container'>
@@ -388,7 +389,7 @@ const Home = () => {
               </div>
             </div>)}
             </div>
-          </div> : <div></div>}
+          </div> : <></>}
           {isGenerating ?
           <div className='button-container'>
             <div>
@@ -397,17 +398,22 @@ const Home = () => {
             <div className="header-title">
               <h2>We are generating ideas..</h2>
             </div>
-          </div> : <div></div>}
+          </div> : <></>}
           {apiOutput ?
-          <div>
-            <div className="header-title"><h1>Your Present Ideas</h1></div>
             <div className="output">
+              <div className="header-title">
+                <div>
+                  <h1>Your Present Ideas</h1>
+                  <br />
+                  <h4 className='h1flex'>Each gift has a link to Amazon.com</h4>
+                </div>
+              </div>
               <div className="output-content">
                 <div>
                 <br />
                 {JSON.parse(apiOutput).map(i =>
                 <div>
-                  <a target={"_blank"} href={`https://www.amazon.de/s?k=${i.brand}+${i.name}&crid=6KTS57CKQVK5&sprefix=${i.brand}${i.name}%2Caps%2C91&ref=nb_sb_noss_1`} className="no-underline">
+                  <a target={"_blank"} href={`https://www.amazon.de/s?k=${i.brand}+${i.name.split(" ").join("+")}&crid=6KTS57CKQVK5&sprefix=${i.brand}+${i.name}%2Caps%2C91&linkCode=ll2&tag=heygifts22par-21&linkId=492dc4e238d40abd89a48fa5aa6ce968&language=en_GB&ref_=as_li_ss_tl`} className="no-underline">
                     <h4>{capitalizeWords(i.brand)}: {capitalizeWords(i.name)}</h4>
                   </a>
                 </div>
@@ -423,8 +429,7 @@ const Home = () => {
                   )} */}
                 </div>
               </div>
-            </div>
-          </div> : <div></div>}
+          </div> : <></>}
         </div>
       </div>
   );
